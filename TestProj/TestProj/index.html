@@ -65,7 +65,16 @@
             <input type="text" id="input" size="20" value="" /> <small>Something</small><br />
         </fieldset>
         <script>
-            // Add your code here
+            function countVowel(str) { 
+    const count = str.match(/[aeiou]/gi).length;
+    return count;
+}
+
+const string = prompt('Enter a string: ');
+
+const result = countVowel(string);
+
+document.write(result);
         </script>
     </form>
     <h2>Task 4</h2>
@@ -87,7 +96,24 @@
             <input type="text" id="input" size="20" value="" /> <small>Something</small><br />
         </fieldset>
         <script>
-            // Add your code here
+            function fibonacci(num) {
+    if(num < 2) {
+        return num;
+    }
+    else {
+        return fibonacci(num-1) + fibonacci(num - 2);
+    }
+}
+const nTerms = prompt('Enter the number of terms: ');
+
+if(nTerms <=0) {
+    document.write('Enter a positive integer.');
+}
+else {
+    for(let i = 0; i < nTerms; i++) {
+        document.write(fibonacci(i));
+    }
+}
         </script>
     </form>
     <h1>Laboratory work 8</h1>
