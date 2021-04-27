@@ -46,7 +46,19 @@
             <input type="text" id="input" size="20" value="" /> <small>Something</small><br />
         </fieldset>
         <script>
-            // Add your code here
+            const isAnagram = (str1, str2) => {
+  const normalize = str =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
+      .sort()
+      .join('');
+  return normalize(str1) === normalize(str2);
+};
+document.write(isAnagram('iceman', 'cinema')); 
+document.write(isAnagram('madam', 'madam'));
+ 
         </script>
     </form>
     <h2>Task 3</h2>
