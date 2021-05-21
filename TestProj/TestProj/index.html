@@ -28,6 +28,39 @@
         </fieldset>
         <script>
             // Add your code here
+              var longestPalindrome = function(str) 
+{
+if (str.length < 1 || str === null) return ''; 
+
+let longest = '';
+for (let i = 0; i < str.length; i++)
+{
+let oddPalindrome = expandFromCenter(str, i, i);
+let evenPalindrome = expandFromCenter(str, i-1, i);
+
+if(oddPalindrome.length > longest.length)
+{
+longest = oddPalindrome;
+}
+if (evenPalindrome.length > longest.length)
+{
+longest = evenPalindrome;
+}
+}
+return longest;
+}
+
+function expandFromCenter(str, left, right)
+{
+let i = 0;
+while(str[left - i]&& str[left - i] ===str[right +i])
+{
+i++;
+}
+i--;
+
+return str.slice(left -i,right +i +1);
+}
         </script>
     </form>
     <h2>Task 2</h2>
@@ -47,6 +80,19 @@
         </fieldset>
         <script>
             // Add your code here
+            const isAnagram = (str1, str2) => {
+  const normalize = str =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
+      .sort()
+      .join('');
+  return normalize(str1) === normalize(str2);
+};
+document.write(isAnagram('iceman', 'cinema')); 
+
+document.write(isAnagram('madam', 'madam'));
         </script>
     </form>
     <h2>Task 3</h2>
@@ -66,6 +112,16 @@
         </fieldset>
         <script>
             // Add your code here
+                    function countVowel(str) { 
+    const count = str.match(/[aeiou]/gi).length;
+    return count;
+}
+
+const string = prompt('Enter a string: ');
+
+const result = countVowel(string);
+
+document.write(result);
         </script>
     </form>
     <h2>Task 4</h2>
@@ -88,6 +144,24 @@
         </fieldset>
         <script>
             // Add your code here
+            function fibonacci(num) {
+        if(num < 2) {
+            return num;
+    }
+        else {
+             return fibonacci(num-1) + fibonacci(num - 2);
+    }
+}
+const nTerms = prompt('Enter the number of terms: ');
+
+if(nTerms <=0) {
+    document.write('Enter a positive integer.');
+}
+else {
+    for(let i = 0; i < nTerms; i++) {
+        document.write(fibonacci(i));
+    }
+}
         </script>
     </form>
     <h1>Laboratory work 8</h1>
@@ -105,6 +179,46 @@
         </fieldset>
         <script>
             // Add your code here
+             function findNDigitNumsUtil(n, sum, out, index)
+            {
+                if (index > n || sum < 0)
+                    return;
+                if (index == n)
+                {
+                    if(sum == 0)
+                    {
+                        out[index] = '\0';
+                        for(let i = 0; i < out.length; i++)
+                         
+                            document.write(out[i]);
+                        document.write(" ");
+                    }
+                    return;
+                }
+                for (let i = 0; i <= 9; i++)
+                {
+                    out[index] = String.fromCharCode(i + '0'.charCodeAt(0));
+            
+                    findNDigitNumsUtil(n, sum - i, out, index + 1);
+                }
+            }
+            function findNDigitNums(n,sum)
+            {
+                let out = new Array(n+1);
+                for(let i=0;i<n+1;i++)
+                {
+                    out[i]=false;
+                }
+               
+                for (let i = 1; i <= 9; i++)
+                {
+                    out[0] = String.fromCharCode(i + '0'.charCodeAt(0));
+                    findNDigitNumsUtil(n, sum - i, out, 1);
+                }
+            }
+            const nTerms = prompt ('enter the number');
+            let  n = 2, sum = 3;
+            findNDigitNums(n, sum);
         </script>
     </form>
     <h2>Task 2</h2>
@@ -122,6 +236,18 @@
         </fieldset>
         <script>
             // Add your code here
+            
+            const side1 = parseInt(prompt('Enter side1: '));
+            const side2 = parseInt(prompt('Enter side2: '));
+            const side3 = parseInt(prompt('Enter side3: '));
+
+
+            const s = (side1 + side2 + side3) / 2;
+
+
+            const areaValue = Math.sqrt( s * (s - side1) * (s - side2) * (s - side3));
+
+            document.write(areaValue);
         </script>
     </form>
     <h2>Task 3</h2>
@@ -139,6 +265,16 @@
         </fieldset>
         <script>
             // Add your code here
+             function between (min, max)
+            {
+                return Math.floor(Math.random () * (max - min) + min)
+            }
+            for (var i =0; i<20;i++)
+        
+            {
+                Array ();
+            }
+            document.write(Array);
         </script>
     </form>
     <h2>Task 4</h2>
